@@ -1,3 +1,4 @@
+import 'package:MinhaGaragem/screens/home_screen.dart';
 import 'package:MinhaGaragem/screens/signup_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -109,6 +110,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   textColor: Colors.white,
                   color: Theme.of(context).primaryColor,
                   onPressed: (){
+                    Navigator.of(context).pushReplacement(MaterialPageRoute
+                      (builder: (context) => HomeScreen()));
+
                     /*
                     * verificação de usuario e senha
                     *

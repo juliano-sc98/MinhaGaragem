@@ -80,6 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 textColor: Colors.white,
                 color: Theme.of(context).primaryColor,
                 onPressed: () {
+
                   /*
                   * criar usuario no db
                   *
