@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "251517314296",
+    "firebase_url": "https://minhagaragem-dfd0a.firebaseio.com",
+    "project_id": "minhagaragem-dfd0a",
+    "storage_bucket": "minhagaragem-dfd0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251517314296:android:13effd88d80675a315870d",
+        "android_client_info": {
+          "package_name": "br.com.minhaGaragem.MinhaGaragem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251517314296-jr33ntjn069m11vrp7trfkrvc36vncg7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.minhaGaragem.MinhaGaragem",
+            "certificate_hash": "6bd866c9a865c133b37065728d5c31ac52485295"
+          }
+        },
+        {
+          "client_id": "251517314296-44ek0u4aalh9vi3gud7kf038km1i2o77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPJDUR-EpP74k2DD146omBcLQ2i-2pj98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251517314296-44ek0u4aalh9vi3gud7kf038km1i2o77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
