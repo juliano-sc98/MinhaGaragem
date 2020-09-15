@@ -1,5 +1,5 @@
 import 'package:MinhaGaragem/components/default_button.dart';
-import 'package:MinhaGaragem/screens/home_screen.dart';
+import 'file:///C:/Users/Juliano/Desktop/Unisul/MinhaGaragem/lib/screens/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -84,11 +84,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       (builder: (context) => HomeScreen()));
                   }
               ),
-
-            )
-
+            ),
           ],
-        )),
+        ),
+      ),
     );
   }
 }

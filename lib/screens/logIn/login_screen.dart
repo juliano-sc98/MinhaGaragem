@@ -1,11 +1,10 @@
 import 'package:MinhaGaragem/components/default_button.dart';
 import 'package:MinhaGaragem/constants.dart';
-import 'package:MinhaGaragem/screens/home_screen.dart';
+import 'file:///C:/Users/Juliano/Desktop/Unisul/MinhaGaragem/lib/screens/home/home_screen.dart';
 import 'file:///C:/Users/Juliano/Desktop/Unisul/MinhaGaragem/lib/screens/logIn/signUp/signup_screen.dart';
 import 'package:MinhaGaragem/size_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -118,14 +117,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
 
               )
-
             ],
           ),
       ),
-
     );
   }
-
 }
 
 

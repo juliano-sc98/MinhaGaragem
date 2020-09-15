@@ -6,5 +6,4 @@ class UserModel extends Model {
 
   //FirebaseAuth _auth = FirebaseAuth.instance;
 
-
 }
