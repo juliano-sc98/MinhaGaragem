@@ -1,3 +1,5 @@
+import 'package:MinhaGaragem/components/default_button.dart';
+import 'package:MinhaGaragem/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +24,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       appBar: AppBar(
         title: Text("Criar Conta"),
         centerTitle: true,
+
       ),
 
       body: Form(
@@ -70,24 +73,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
               }
             ),
 
+
             SizedBox(height: 16.0,),
             SizedBox(
               height: 44.0,
-              child: RaisedButton(
-                child: Text("Criar conta",
-                style: TextStyle(fontSize: 18.0),
-                ),
-                textColor: Colors.white,
-                color: Theme.of(context).primaryColor,
-                onPressed: () {
+              child: DefaultButton(
+                  text: "Criar Conta",
+                  press: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute
+                      (builder: (context) => HomeScreen()));
+                  }
+              ),
 
-                  /*
-                  * criar usuario no db
-                  *
-                  *
-                  * */
-                }),
-            ),
+            )
 
           ],
         )),

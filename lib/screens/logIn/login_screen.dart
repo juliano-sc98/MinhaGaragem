@@ -1,5 +1,8 @@
+import 'package:MinhaGaragem/components/default_button.dart';
+import 'package:MinhaGaragem/constants.dart';
 import 'package:MinhaGaragem/screens/home_screen.dart';
-import 'package:MinhaGaragem/screens/signup_screen.dart';
+import 'file:///C:/Users/Juliano/Desktop/Unisul/MinhaGaragem/lib/screens/logIn/signUp/signup_screen.dart';
+import 'package:MinhaGaragem/size_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -11,6 +14,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
+  static String routeName = "/log_in";
+
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
 
@@ -19,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -26,12 +32,14 @@ class _LoginScreenState extends State<LoginScreen> {
         centerTitle: true,
         actions: <Widget>[
 
+
+
           FlatButton(
             child: Text("CRIAR CONTA",
             style: TextStyle(fontSize: 15.0),),
-            textColor: Colors.white,
+            textColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute
+              Navigator.push(context, MaterialPageRoute
                 (builder: (context) => SignUpScreen()));
             }, )
 
@@ -101,23 +109,14 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 16.0,),
               SizedBox(
                 height: 44.0,
-                child: RaisedButton(
-                  child: Text("Entrar",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                    ),
-                  ),
-                  textColor: Colors.white,
-                  color: Theme.of(context).primaryColor,
-                  onPressed: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute
-                      (builder: (context) => HomeScreen()));
+                child: DefaultButton(
+                    text: "Entrar",
+                    press: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute
+                        (builder: (context) => HomeScreen()));
+                    }
+                ),
 
-                    /*
-                    * verificação de usuario e senha
-                    *
-                    * */
-                  }),
               )
 
             ],
@@ -126,6 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     );
   }
+
 }
 
 
