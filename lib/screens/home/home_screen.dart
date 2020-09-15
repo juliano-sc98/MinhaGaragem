@@ -17,6 +17,57 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: buildAppBar(),
+      body: Container(
+      color: kPrimaryLightColor,
+
+        child: Center(
+
+          child: Container(
+            color: kPrimaryLightColor,
+            width: MediaQuery.of(context).size.width,
+            height: getProportionateScreenHeight(280),
+
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                GestureDetector(
+                  child: Container(
+
+                    width: getProportionateScreenWidth(110),
+                    height: getProportionateScreenHeight(110),
+                    decoration: BoxDecoration(
+
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/suv.png"),
+                          fit: BoxFit.cover
+                      ),
+                    ),
+                  ),
+
+                ),
+
+                Padding(padding: EdgeInsets.only(top: 10.0)),
+                Text("Carro", style: TextStyle(
+                    fontSize: getProportionateScreenWidth(18),
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                Text("Seu carro está em dia com as contas", style: TextStyle(
+                  fontSize: getProportionateScreenWidth(14),
+                  color: Colors.black,
+                  ),
+                ),
+
+              ],
+            ),
+          ),
+        ),
+      ),
+
       bottomNavigationBar: Container(
         color: Colors.white,
         child: Row(
@@ -58,6 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+
     );
   }
 
@@ -98,9 +150,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 );
               }
-              );
+          );
         },
       ),
+
       title: Text(
         "Olá Visitante",
         style: TextStyle(color: Colors.black),
@@ -149,7 +202,7 @@ class NavItem extends StatelessWidget {
           Spacer(),
 
           Text(text,
-            style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
           )
         ],
       ),
