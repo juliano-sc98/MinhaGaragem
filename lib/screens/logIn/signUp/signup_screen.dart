@@ -1,5 +1,5 @@
 import 'package:MinhaGaragem/components/default_button.dart';
-import 'file:///C:/Users/Juliano/Desktop/Unisul/MinhaGaragem/lib/screens/home/home_screen.dart';
+import 'package:MinhaGaragem/screens/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
@@ -24,9 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       appBar: AppBar(
         title: Text("Criar Conta"),
         centerTitle: true,
-
       ),
-
       body: Form(
         key: _formKey,
         child: ListView(
@@ -34,56 +31,51 @@ class _SignUpScreenState extends State<SignUpScreen> {
           children: <Widget>[
             TextFormField(
               controller: _nameController,
-              decoration: InputDecoration(
-                hintText: "Nome Completo"
-              ),
+              decoration: InputDecoration(hintText: "Nome Completo"),
               // ignore: missing_return
               validator: (text) {
-                if(text.isEmpty) return "Nome inválido!";
+                if (text.isEmpty) return "Nome inválido!";
               },
             ),
-
-            SizedBox(height: 16.0,),
+            SizedBox(
+              height: 16.0,
+            ),
             TextFormField(
               controller: _emailController,
-              decoration: InputDecoration(
-                  hintText: "E-mail"
-              ),
+              decoration: InputDecoration(hintText: "E-mail"),
               keyboardType: TextInputType.emailAddress,
               // ignore: missing_return
               validator: (text) {
-                if(text.isEmpty || !text.contains('@')) return "E-mail inválido!";
+                if (text.isEmpty || !text.contains('@'))
+                  return "E-mail inválido!";
               },
             ),
-
-            SizedBox(height: 16.0,),
-            TextFormField(
-              controller: _passController,
-              decoration: InputDecoration(
-                  hintText: "Senha"
-              ),
-              obscureText: true,
-              // ignore: missing_return
-              validator: (text) {
-                if (text.isEmpty) {
-                  return "Senha inválido!";
-                } else if (text.length < 6) {
-                  return "Crie uma senha com 6 ou mais caracteres";
-                }
-              }
+            SizedBox(
+              height: 16.0,
             ),
-
-
-            SizedBox(height: 16.0,),
+            TextFormField(
+                controller: _passController,
+                decoration: InputDecoration(hintText: "Senha"),
+                obscureText: true,
+                // ignore: missing_return
+                validator: (text) {
+                  if (text.isEmpty) {
+                    return "Senha inválido!";
+                  } else if (text.length < 6) {
+                    return "Crie uma senha com 6 ou mais caracteres";
+                  }
+                }),
+            SizedBox(
+              height: 16.0,
+            ),
             SizedBox(
               height: 44.0,
               child: DefaultButton(
                   text: "Criar Conta",
                   press: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute
-                      (builder: (context) => HomeScreen()));
-                  }
-              ),
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  }),
             ),
           ],
         ),
@@ -91,4 +83,3 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
-

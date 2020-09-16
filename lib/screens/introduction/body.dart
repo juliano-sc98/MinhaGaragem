@@ -12,21 +12,19 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-
   int _currentPage = 0;
 
   List<Map<String, String>> data = [
     {
-      "text": "Bem vinda a Minha Garagem! Seu carro ficará seguro com a gente!",
-      "image": "assets/images/document.png"
+      "text": "Bem vindo ao Minha Garagem! Seu carro ficará seguro conosco.",
+      "image": "assets/images/logo.png"
     },
     {
-      "text":
-      "Acompanhe a manutenção do seu carro!",
-      "image": "assets/images/car.png"
+      "text": "Acompanhe a manutenção do seu carro",
+      "image": "assets/images/manut.png"
     },
     {
-      "text": "Verifique seus débitos com a gente",
+      "text": "Fique em dia com seus débitos",
       "image": "assets/images/boleto.png"
     },
   ];
@@ -35,65 +33,55 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: SizedBox(
-          width: double.infinity,
-          child: Column(
-            children: <Widget>[
-
-              Expanded(
-                flex: 3,
-                child: PageView.builder(
-                  onPageChanged: (value) {
-                    setState(() {
-                      _currentPage = value;
-                    });
-                  },
-                  itemCount: data.length,
-                  itemBuilder: (context, index) => IntroContent(
-                    image: data[index]['image'],
-                    text: data[index]['text'],
-                  ),
-                ),
+      width: double.infinity,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 3,
+            child: PageView.builder(
+              onPageChanged: (value) {
+                setState(() {
+                  _currentPage = value;
+                });
+              },
+              itemCount: data.length,
+              itemBuilder: (context, index) => IntroContent(
+                image: data[index]['image'],
+                text: data[index]['text'],
               ),
-
-              Expanded(
-                flex: 2,
-                child: Padding(
-
-                    padding: EdgeInsets.symmetric(
-                      horizontal: getProportionateScreenWidth(20)),
-
-                    child: Column(
-                      children: <Widget>[
-
-                        Spacer(),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                              data.length,
-                              (index) => buildDot(index: index)),
-                        ),
-
-                        Spacer(flex: 3),
-
-                        DefaultButton(
-                          text: "Continuar",
-                          press: () {
-                            Navigator.push(context, MaterialPageRoute
-                              (builder: (context) => LoginScreen()));
-                          },
-                        ),
-
-                        Spacer(),
-
-                      ],
-                    ),
-                ),
-              ),
-            ],
+            ),
           ),
-        )
-    );
+          Expanded(
+            flex: 2,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20)),
+              child: Column(
+                children: <Widget>[
+                  Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                        data.length, (index) => buildDot(index: index)),
+                  ),
+                  Spacer(flex: 3),
+                  DefaultButton(
+                    text: "Continuar",
+                    press: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()));
+                    },
+                  ),
+                  Spacer(),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    ));
   }
 
   AnimatedContainer buildDot({int index}) {
@@ -108,7 +96,4 @@ class _BodyState extends State<Body> {
       ),
     );
   }
-
-
 }
-
