@@ -31,18 +31,20 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CarDetails()));
+                  },
                   child: Container(
-                    width: getProportionateScreenWidth(110),
-                    height: getProportionateScreenHeight(110),
+                    width: getProportionateScreenWidth(140),
+                    height: getProportionateScreenHeight(140),
                     decoration: BoxDecoration(
-                      shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: AssetImage("assets/images/suv.png"),
-                          fit: BoxFit.cover),
+                          image: AssetImage("assets/images/onix.png"),
+                          fit: BoxFit.contain),
                     ),
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: 10.0)),
                 Text(
                   "Carro",
                   style: TextStyle(
@@ -64,44 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        child: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              CustomNavBar(
-                icon: "assets/icons/manutencao.svg",
-                text: "Manutenção",
-                press: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CarDetails()));
-                },
-              ),
-              CustomNavBar(
-                icon: "assets/icons/carro.svg",
-                text: "+ Veículo",
-                press: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => AddVeiculoScreen()));
-                },
-              ),
-              CustomNavBar(
-                icon: "assets/icons/dolar.svg",
-                text: "Taxas",
-                press: () {},
-              ),
-              CustomNavBar(
-                icon: "assets/icons/aviso.svg",
-                text: "Multas",
-                press: () {},
-              ),
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar: CustomNavBar(),
     );
   }
 

@@ -20,130 +20,133 @@ class _CarDetailsState extends State<CarDetails> {
             style: TextStyle(color: Color.fromRGBO(112, 112, 112, 1))),
         centerTitle: true,
       ),
-      body: Container(
-        height: height,
-        width: width,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [
-              Color.fromARGB(75, 23, 134, 236),
-              Color.fromARGB(75, 23, 134, 236)
-            ],
-                begin: FractionalOffset.topCenter,
-                end: FractionalOffset.bottomCenter)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(right: 25.0, left: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Seu carro",
-                          style: TextStyle(
-                              color: Color.fromRGBO(112, 112, 112, 1),
-                              fontSize: height / 45),
-                        ),
-                        SizedBox(
-                          height: 5.0,
-                        ),
-                        Text(
-                          "Chevrolet Onix",
-                          style: TextStyle(
-                              color: Colors.black, fontSize: height / 32),
-                        )
-                      ],
+      body: SingleChildScrollView(
+        child: Container(
+          height: height,
+          width: width,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(75, 23, 134, 236),
+                    Color.fromARGB(75, 23, 134, 236)
+                  ],
+                  begin: FractionalOffset.topCenter,
+                  end: FractionalOffset.bottomCenter)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(right: 25.0, left: 25.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "Seu carro",
+                            style: TextStyle(
+                                color: Color.fromRGBO(112, 112, 112, 1),
+                                fontSize: height / 45),
+                          ),
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          Text(
+                            "Chevrolet Onix",
+                            style: TextStyle(
+                                color: Colors.black, fontSize: height / 32),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 40.0, right: 40.0),
-              child: Container(
+              Padding(
+                padding: EdgeInsets.only(left: 40.0, right: 40.0),
+                child: Container(
+                  height: height / 4,
+                  width: width,
+                  decoration: BoxDecoration(
+                    //color: Colors.red,
+                      image: DecorationImage(
+                          image: AssetImage("assets/images/onix.png"),
+                          fit: BoxFit.contain)),
+                ),
+              ),
+              //you can use container or else expanded to put the listview
+              Container(
                 height: height / 4,
                 width: width,
-                decoration: BoxDecoration(
-                    //color: Colors.red,
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/onix.png"),
-                        fit: BoxFit.contain)),
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    testab(
+                        Icon(CommunityMaterialIcons.speedometer,
+                            color: Colors.white),
+                        "Quilometragem",
+                        "8345 km",
+                        (height / 5) / 6,
+                        "+ 7km hoje",
+                        true),
+                    testab(
+                        Icon(CommunityMaterialIcons.gas_station,
+                            color: Colors.white),
+                        "Consumo",
+                        "15.4/l km",
+                        (height / 5) / 6,
+                        "",
+                        true),
+                    testab(
+                        Icon(CommunityMaterialIcons.tools, color: Colors.white),
+                        "Últ. Manutenção",
+                        "--/--/--",
+                        (height / 5) / 6,
+                        "",
+                        false),
+                    testab(
+                        Icon(CommunityMaterialIcons.car_tire_alert,
+                            color: Colors.white),
+                        "Últ. Calibragem",
+                        "23/11/19",
+                        (height / 5) / 6,
+                        "",
+                        false),
+                  ],
+                ),
               ),
-            ),
-            //you can use container or else expanded to put the listview
-            Container(
-              height: height / 4,
-              width: width,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  testab(
-                      Icon(CommunityMaterialIcons.speedometer,
-                          color: Colors.white),
-                      "Quilometragem",
-                      "8345 km",
-                      (height / 5) / 6,
-                      "+ 7km hoje",
-                      true),
-                  testab(
-                      Icon(CommunityMaterialIcons.gas_station,
-                          color: Colors.white),
-                      "Consumo",
-                      "15.4/l km",
-                      (height / 5) / 6,
-                      "",
-                      true),
-                  testab(
-                      Icon(CommunityMaterialIcons.tools, color: Colors.white),
-                      "Últ. Manutenção",
-                      "--/--/--",
-                      (height / 5) / 6,
-                      "",
-                      false),
-                  testab(
-                      Icon(CommunityMaterialIcons.car_tire_alert,
-                          color: Colors.white),
-                      "Últ. Calibragem",
-                      "23/11/19",
-                      (height / 5) / 6,
-                      "",
-                      false),
-                ],
+              SizedBox(
+                height: height / 30,
               ),
-            ),
-            SizedBox(
-              height: height / 30,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 25.0),
-              child: Text(
-                "Próximas manutenções",
-                style: TextStyle(color: Colors.black, fontSize: height / 50),
+              Padding(
+                padding: EdgeInsets.only(left: 25.0),
+                child: Text(
+                  "Próximas manutenções",
+                  style: TextStyle(color: Colors.black, fontSize: height / 50),
+                ),
               ),
-            ),
-            SizedBox(
-              height: height / 30,
-            ),
-            Container(
-              height: height / 7,
-              width: width,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  parts("assets/images/oil.png", "Troca de óleo", "70"),
-                  parts("assets/images/tires.png", "Balanceamento", "210")
-                ],
+              SizedBox(
+                height: height / 30,
               ),
-            )
-          ],
+              Container(
+                height: height / 7,
+                width: width,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    parts("assets/images/oil.png", "Troca de óleo", "70"),
+                    parts("assets/images/tires.png", "Balanceamento", "210")
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
+      bottomNavigationBar: CustomNavBar(),
     );
   }
 
