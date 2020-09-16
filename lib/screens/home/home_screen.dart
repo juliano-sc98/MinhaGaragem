@@ -2,6 +2,7 @@ import 'package:MinhaGaragem/components/custom_nav_bar.dart';
 import 'package:MinhaGaragem/constants.dart';
 import 'package:MinhaGaragem/screens/manutencao/maint_screen.dart';
 import 'package:MinhaGaragem/screens/user/user_screen.dart';
+import 'package:MinhaGaragem/screens/veiculo/cadastro_v.dart';
 import 'package:MinhaGaragem/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -80,7 +81,12 @@ class _HomeScreenState extends State<HomeScreen> {
               CustomNavBar(
                 icon: "assets/icons/carro.svg",
                 text: "+ Veículo",
-                press: () {},
+                press: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AddVeiculoScreen()));
+                },
               ),
               CustomNavBar(
                 icon: "assets/icons/dolar.svg",
@@ -149,5 +155,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
-
 }

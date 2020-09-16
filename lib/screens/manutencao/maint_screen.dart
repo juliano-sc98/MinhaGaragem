@@ -1,3 +1,4 @@
+import 'package:MinhaGaragem/components/custom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
@@ -13,12 +14,21 @@ class _CarDetailsState extends State<CarDetails> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(75, 23, 134, 236),
+        title: Text("Manutenção",
+            style: TextStyle(color: Color.fromRGBO(112, 112, 112, 1))),
+        centerTitle: true,
+      ),
       body: Container(
         height: height,
         width: width,
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.blue[100], Color.fromARGB(255, 23, 134, 236)],
+                colors: [
+              Color.fromARGB(75, 23, 134, 236),
+              Color.fromARGB(75, 23, 134, 236)
+            ],
                 begin: FractionalOffset.topCenter,
                 end: FractionalOffset.bottomCenter)),
         child: Column(
@@ -44,18 +54,13 @@ class _CarDetailsState extends State<CarDetails> {
                           height: 5.0,
                         ),
                         Text(
-                          "Tesla Model 3",
+                          "Chevrolet Onix",
                           style: TextStyle(
-                              color: Colors.white, fontSize: height / 32),
+                              color: Colors.black, fontSize: height / 32),
                         )
                       ],
                     ),
                   ),
-                  Icon(
-                    Icons.search,
-                    color: Colors.white,
-                    size: height / 25,
-                  )
                 ],
               ),
             ),
@@ -67,7 +72,7 @@ class _CarDetailsState extends State<CarDetails> {
                 decoration: BoxDecoration(
                     //color: Colors.red,
                     image: DecorationImage(
-                        image: AssetImage("assets/images/tesla.png"),
+                        image: AssetImage("assets/images/onix.png"),
                         fit: BoxFit.contain)),
               ),
             ),
@@ -78,18 +83,37 @@ class _CarDetailsState extends State<CarDetails> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
-                  testab(Icon(FeatherIcons.battery, color: Colors.white),
-                      "Battery", "71%", (height / 4) / 5, "210 mi left", true),
-                  testab(Icon(FeatherIcons.zap, color: Colors.white), "Mileage",
-                      "10345 mi", (height / 4) / 9, "+ 23 min today", true),
                   testab(
-                      Icon(CommunityMaterialIcons.oil_temperature,
+                      Icon(CommunityMaterialIcons.speedometer,
                           color: Colors.white),
-                      "Temperature",
-                      "39%",
-                      (height / 4) / 5,
-                      "Choke free",
+                      "Quilometragem",
+                      "8345 km",
+                      (height / 5) / 6,
+                      "+ 7km hoje",
                       true),
+                  testab(
+                      Icon(CommunityMaterialIcons.gas_station,
+                          color: Colors.white),
+                      "Consumo",
+                      "15.4/l km",
+                      (height / 5) / 6,
+                      "",
+                      true),
+                  testab(
+                      Icon(CommunityMaterialIcons.tools, color: Colors.white),
+                      "Últ. Manutenção",
+                      "--/--/--",
+                      (height / 5) / 6,
+                      "",
+                      false),
+                  testab(
+                      Icon(CommunityMaterialIcons.car_tire_alert,
+                          color: Colors.white),
+                      "Últ. Calibragem",
+                      "23/11/19",
+                      (height / 5) / 6,
+                      "",
+                      false),
                 ],
               ),
             ),
@@ -100,9 +124,7 @@ class _CarDetailsState extends State<CarDetails> {
               padding: EdgeInsets.only(left: 25.0),
               child: Text(
                 "Próximas manutenções",
-                style: TextStyle(
-                    color: Color.fromRGBO(115, 115, 115, 1),
-                    fontSize: height / 50),
+                style: TextStyle(color: Colors.black, fontSize: height / 50),
               ),
             ),
             SizedBox(
@@ -114,8 +136,8 @@ class _CarDetailsState extends State<CarDetails> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
-                  parts("assets/images/charger.png", "Fast Charger", "499"),
-                  parts("assets/images/tires.png", "Tires", "199")
+                  parts("assets/images/oil.png", "Troca de óleo", "70"),
+                  parts("assets/images/tires.png", "Balanceamento", "210")
                 ],
               ),
             )
@@ -142,8 +164,8 @@ class _CarDetailsState extends State<CarDetails> {
             ),
             gradient: LinearGradient(
                 colors: [
-                  Color.fromRGBO(0, 40, 99, 1),
-                  Color.fromRGBO(34, 34, 34, 1)
+                  Color.fromARGB(255, 23, 134, 236),
+                  Color.fromARGB(75, 23, 134, 236)
                 ],
                 begin: FractionalOffset.topCenter,
                 end: FractionalOffset.bottomCenter)),
@@ -159,7 +181,7 @@ class _CarDetailsState extends State<CarDetails> {
               style: TextStyle(color: Colors.white),
             ),
             SizedBox(
-              height: height / 15,
+              height: height / 20,
             ),
             Text(
               details,
@@ -167,15 +189,15 @@ class _CarDetailsState extends State<CarDetails> {
             ),
             Text(
               detaildata,
-              style: TextStyle(color: Color.fromRGBO(112, 112, 112, 1)),
+              style: TextStyle(color: Colors.black),
             ),
             SizedBox(
-              height: height / 5,
+              height: height / 20,
             ),
-            // Text(
-            //   see == true ? "See all" : "",
-            //   style: TextStyle(color: Color.fromRGBO(112, 112, 112, 1)),
-            // ),
+            Text(
+              see == true ? "Ver mais" : "",
+              style: TextStyle(color: Colors.black),
+            ),
           ],
         ),
       ),
@@ -215,8 +237,8 @@ class _CarDetailsState extends State<CarDetails> {
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                             colors: [
-                              Color.fromRGBO(20, 20, 20, 1),
-                              Color.fromRGBO(34, 34, 34, 1)
+                              Color.fromARGB(255, 23, 134, 236),
+                              Color.fromARGB(75, 23, 134, 236)
                             ],
                             begin: FractionalOffset.topCenter,
                             end: FractionalOffset.bottomCenter),
@@ -226,28 +248,29 @@ class _CarDetailsState extends State<CarDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "Tesla",
+                          "10/12/2029",
                           style: TextStyle(
-                              color: Color.fromRGBO(112, 112, 112, 1)),
+                            color: Colors.white,
+                          ),
                         ),
                         Text(
-                          "Fast Chrger",
+                          "Primeira revisão",
                           style: TextStyle(
-                              color: Colors.white, fontSize: height / 40),
+                              color: Colors.white, fontSize: height / 50),
                         ),
                         SizedBox(
-                          height: height / 40,
+                          height: height / 60,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text("\$$cost",
-                                style: TextStyle(color: Colors.white)),
+                                style: TextStyle(color: Colors.black)),
                             Row(
                               children: <Widget>[
                                 Icon(
-                                  CommunityMaterialIcons.truck_delivery,
-                                  color: Colors.white,
+                                  CommunityMaterialIcons.tools,
+                                  color: Colors.black,
                                   size: height / 60,
                                 ),
                                 SizedBox(
@@ -256,8 +279,8 @@ class _CarDetailsState extends State<CarDetails> {
                                 Text(
                                   product,
                                   style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: height / 80),
+                                      color: Colors.black,
+                                      fontSize: height / 70),
                                 )
                               ],
                             )
@@ -265,6 +288,7 @@ class _CarDetailsState extends State<CarDetails> {
                         )
                       ],
                     ))),
+
             Positioned(
               top: (height / 7) / 6,
               left: 0.0,
