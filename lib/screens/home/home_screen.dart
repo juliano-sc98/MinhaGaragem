@@ -64,33 +64,35 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: Container(
         color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            NavItem(
-              icon: "assets/icons/manutencao.svg",
-              text: "Manutenção",
-              press: () {
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => CarDetails()));
-              },
-            ),
-            NavItem(
-              icon: "assets/icons/carro.svg",
-              text: "+ Veículo",
-              press: () {},
-            ),
-            NavItem(
-              icon: "assets/icons/dolar.svg",
-              text: "Taxas",
-              press: () {},
-            ),
-            NavItem(
-              icon: "assets/icons/aviso.svg",
-              text: "Multas",
-              press: () {},
-            ),
-          ],
+        child: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              NavItem(
+                icon: "assets/icons/manutencao.svg",
+                text: "Manutenção",
+                press: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CarDetails()));
+                },
+              ),
+              NavItem(
+                icon: "assets/icons/carro.svg",
+                text: "+ Veículo",
+                press: () {},
+              ),
+              NavItem(
+                icon: "assets/icons/dolar.svg",
+                text: "Taxas",
+                press: () {},
+              ),
+              NavItem(
+                icon: "assets/icons/aviso.svg",
+                text: "Multas",
+                press: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -159,24 +161,28 @@ class NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(5.0),
-      height: getProportionateScreenHeight(75),
-      width: getProportionateScreenWidth(93),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10.0),
-        boxShadow: [kDefualtShadow],
-      ),
-      child: Column(
-        children: <Widget>[
-          SvgPicture.asset(icon, height: 28, color: kPrimaryColor),
-          Spacer(),
-          Text(
-            text,
-            style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
-          )
-        ],
+    return GestureDetector(
+      onTap: press,
+      child: Container(
+        padding: EdgeInsets.all(5.0),
+        height: getProportionateScreenHeight(75),
+        width: getProportionateScreenWidth(93),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [kDefualtShadow],
+        ),
+        child: Column(
+          children: <Widget>[
+            SvgPicture.asset(icon, height: 28, color: kPrimaryColor),
+            Spacer(),
+            Text(
+              text,
+              style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+            )
+          ],
+        ),
+
       ),
     );
   }
