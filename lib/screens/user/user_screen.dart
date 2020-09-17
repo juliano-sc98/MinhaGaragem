@@ -116,7 +116,9 @@ class _UserScreenState extends State<UserScreen> {
                   ),
               ),
 
-              TextField(
+              Padding(padding: EdgeInsets.only(bottom: 10.0),
+              child:
+                TextField(
                   controller: _newPassController,
                   decoration: InputDecoration(labelText: "Nova senha"),
                   obscureText: true,
@@ -125,6 +127,18 @@ class _UserScreenState extends State<UserScreen> {
 
                     });
                   },
+                ),
+              ),
+
+              TextField(
+                controller: _newPassController,
+                decoration: InputDecoration(labelText: "Confirmar Nova senha"),
+                obscureText: true,
+                onChanged: (text) {
+                  setState(() {
+
+                  });
+                },
               ),
 
             ],
