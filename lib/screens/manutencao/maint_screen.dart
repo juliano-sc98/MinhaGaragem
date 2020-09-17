@@ -27,9 +27,9 @@ class _CarDetailsState extends State<CarDetails> {
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   colors: [
-                    Color.fromARGB(75, 23, 134, 236),
-                    Color.fromARGB(75, 23, 134, 236)
-                  ],
+                Color.fromARGB(75, 23, 134, 236),
+                Color.fromARGB(75, 23, 134, 236)
+              ],
                   begin: FractionalOffset.topCenter,
                   end: FractionalOffset.bottomCenter)),
           child: Column(
@@ -71,13 +71,12 @@ class _CarDetailsState extends State<CarDetails> {
                   height: height / 4,
                   width: width,
                   decoration: BoxDecoration(
-                    //color: Colors.red,
+                      //color: Colors.red,
                       image: DecorationImage(
                           image: AssetImage("assets/images/onix.png"),
                           fit: BoxFit.contain)),
                 ),
               ),
-              //you can use container or else expanded to put the listview
               Container(
                 height: height / 4,
                 width: width,
@@ -157,7 +156,6 @@ class _CarDetailsState extends State<CarDetails> {
     return Padding(
       padding: EdgeInsets.only(left: 30.0),
       child: Container(
-        //lets gove the container a graditn color
         padding: EdgeInsets.all(height / 15),
         height: height,
         width: width,
@@ -207,11 +205,6 @@ class _CarDetailsState extends State<CarDetails> {
     );
   }
 
-  //if this happes just restart your applcation
-  //i am too restarting
-  //now th upper part being done lets move to the lower one now
-  //lets copy the gradient pattern from the upper one
-
   Widget parts(String image, String product, String cost) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -220,14 +213,8 @@ class _CarDetailsState extends State<CarDetails> {
       child: Container(
         height: height / 7,
         width: width / 1.8,
-
-        //we need to have the container to attch the image so we will be using stack
         child: Stack(
           children: <Widget>[
-            //will be using stack then positioned the elements
-            //container to the right side an dimage to the left side
-            //let place the iamge and check
-
             Positioned(
                 right: 0.0,
                 child: Container(
@@ -291,7 +278,6 @@ class _CarDetailsState extends State<CarDetails> {
                         )
                       ],
                     ))),
-
             Positioned(
               top: (height / 7) / 6,
               left: 0.0,
@@ -309,13 +295,3 @@ class _CarDetailsState extends State<CarDetails> {
     );
   }
 }
-
-//lets start working on the upper one first
-//done with adjusting the image now let swork on teh content of the tab
-//now its ready but we need to have the parameters so that the evert widget is different as fast chrger and the tesla tires
-//now its done and looks perfectly fine
-//if you like the design follow michael and us on the instagram and
-//dont forget to like the repo and this video
-// if you love the content
-//Thankyou
-//Stay safe Stay at home Stay healthy
