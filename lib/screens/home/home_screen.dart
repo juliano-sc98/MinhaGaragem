@@ -20,51 +20,151 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: buildAppBar(),
-      body: Container(
-        color: kPrimaryLightColor,
-        child: Center(
-          child: Container(
-            color: kPrimaryLightColor,
-            width: MediaQuery.of(context).size.width,
-            height: getProportionateScreenHeight(280),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CarDetails()));
-                  },
-                  child: Container(
-                    width: getProportionateScreenWidth(140),
-                    height: getProportionateScreenHeight(140),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/onix.png"),
-                          fit: BoxFit.contain),
+      backgroundColor: kPrimaryLightColor,
+      body: ListWheelScrollView(
+        //diameterRatio: 0.4,
+        itemExtent: 250,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            child: Container(
+
+
+              width: MediaQuery.of(context).size.width,
+              height: getProportionateScreenHeight(280),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => CarDetails()));
+                    },
+                    child: Container(
+                      width: getProportionateScreenWidth(140),
+                      height: getProportionateScreenHeight(140),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/onix.png"),
+                            fit: BoxFit.contain),
+                      ),
                     ),
                   ),
-                ),
-                Text(
-                  "Carro",
-                  style: TextStyle(
-                    fontSize: getProportionateScreenWidth(18),
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+                  Text(
+                    "Onix",
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(18),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Padding(padding: EdgeInsets.only(bottom: 10.0)),
-                Text(
-                  "Seu carro está em dia com as contas",
-                  style: TextStyle(
-                    fontSize: getProportionateScreenWidth(14),
-                    color: Colors.black,
+                  Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                  Text(
+                    "Seu carro está em dia com as contas",
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(14),
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-              ],
+
+                ],
+              ),
             ),
           ),
-        ),
+
+
+          Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            child: Container(
+
+              width: MediaQuery.of(context).size.width,
+              height: getProportionateScreenHeight(280),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => CarDetails()));
+                    },
+                    child: Container(
+                      width: getProportionateScreenWidth(140),
+                      height: getProportionateScreenHeight(140),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/renegade.png"),
+                            fit: BoxFit.contain),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    "Renegade",
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(18),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                  Text(
+                    "Seu carro está com o IPVA atrasado",
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(14),
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            child: Container(
+
+              width: MediaQuery.of(context).size.width,
+              height: getProportionateScreenHeight(280),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => CarDetails()));
+                    },
+                    child: Container(
+                      width: getProportionateScreenWidth(140),
+                      height: getProportionateScreenHeight(140),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/biz.png"),
+                            fit: BoxFit.contain),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    "Biz",
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(18),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                  Text(
+                    "Seu moto está em dia com as contas",
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(14),
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+
+        ],
       ),
       bottomNavigationBar: CustomNavBar(),
     );
