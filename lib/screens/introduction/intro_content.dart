@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:MinhaGaragem/constants.dart';
 import 'package:MinhaGaragem/size_config.dart';
 

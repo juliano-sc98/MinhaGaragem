@@ -1,7 +1,6 @@
 import 'package:MinhaGaragem/components/custom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
-import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 
 class CarDetails extends StatefulWidget {
   @override
@@ -11,15 +10,19 @@ class CarDetails extends StatefulWidget {
 class _CarDetailsState extends State<CarDetails> {
   @override
   Widget build(BuildContext context) {
+
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
+
       appBar: AppBar(
         backgroundColor: Color.fromARGB(75, 23, 134, 236),
         title: Text("Manutenção",
             style: TextStyle(color: Color.fromRGBO(112, 112, 112, 1))),
         centerTitle: true,
       ),
+
       body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
@@ -30,6 +33,7 @@ class _CarDetailsState extends State<CarDetails> {
               ],
                   begin: FractionalOffset.topCenter,
                   end: FractionalOffset.bottomCenter)),
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,

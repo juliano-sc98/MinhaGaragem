@@ -49,7 +49,6 @@ class CustomNavBar extends StatelessWidget {
           ],
         ),
       ),
-
     );
   }
 }
@@ -84,11 +83,10 @@ class NavItem extends StatelessWidget {
             Text(
               text,
               style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
-

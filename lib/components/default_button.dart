@@ -24,7 +24,8 @@ class DefaultButton extends StatelessWidget {
               fontSize: getProportionateScreenWidth(18),
               color: Colors.white
             ),
-          )),
+          ),
+      ),
     );
   }
 }

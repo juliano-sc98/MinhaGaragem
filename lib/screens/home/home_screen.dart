@@ -1,11 +1,13 @@
 import 'package:MinhaGaragem/components/custom_nav_bar.dart';
 import 'package:MinhaGaragem/constants.dart';
+import 'package:MinhaGaragem/model/user_model.dart';
 import 'package:MinhaGaragem/screens/manutencao/maint_screen.dart';
 import 'package:MinhaGaragem/screens/user/user_screen.dart';
 import 'package:MinhaGaragem/screens/veiculo/cadastro_v.dart';
 import 'package:MinhaGaragem/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -22,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: buildAppBar(),
       backgroundColor: kPrimaryLightColor,
       body: ListWheelScrollView(
-        //diameterRatio: 0.4,
         itemExtent: 250,
         children: <Widget>[
 
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: getProportionateScreenHeight(280),
-              //color: kPrimaryColor,
+
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -76,7 +77,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-
 
           Padding(
             padding: EdgeInsets.only(left: 20.0, right: 20.0),
@@ -123,6 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.red,
                     ),
                   ),
+
                 ],
               ),
             ),
@@ -173,63 +174,93 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.black,
                     ),
                   ),
+
                 ],
               ),
             ),
           ),
         ],
       ),
+
       bottomNavigationBar: CustomNavBar(),
     );
   }
 
   AppBar buildAppBar() {
+
     return AppBar(
       backgroundColor: kPrimaryColor,
-      leading: IconButton(
-        icon: Icon(
-          Icons.exit_to_app,
-          color: Colors.black,
-        ),
-        onPressed: () {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: Text("Sair"),
-                  content: Text("Deseja sair dessa página?"),
-                  actions: <Widget>[
-                    FlatButton(
-                      child: Text("Cancelar"),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    FlatButton(
-                      child: Text("Sim"),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pop(context);
-                      },
-                    )
-                  ],
+
+      leading: ScopedModelDescendant<UserModel>(
+          builder: (context, child, model) {
+
+            return IconButton(
+              icon: Icon(
+                Icons.exit_to_app,
+                color: Colors.black,
+              ),
+
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+
+                      return AlertDialog(
+                        title: Text("Sair"),
+                        content: Text("Deseja sair dessa página?"),
+                        actions: <Widget>[
+
+                          FlatButton(
+                            child: Text("Cancelar"),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+
+                          FlatButton(
+                            child: Text("Sim"),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              Navigator.pop(context);
+                              model.signOut();
+                            },
+                          )
+
+                        ],
+                      );
+                    }
                 );
-              });
-        },
+              },
+            );
+          }
       ),
-      title: Text(
-        "Olá Visitante",
-        style: TextStyle(color: Colors.black),
+
+      title: ScopedModelDescendant<UserModel>(
+          builder: (context, child, model){
+
+            return Text(
+              "Olá, ${!model.isLoggedIn() ? "" : model.userData['name']}",
+              style: TextStyle(color: Colors.black),
+            );
+
+          }
       ),
+
       centerTitle: true,
       elevation: 0,
       actions: <Widget>[
-        IconButton(
-            icon: ClipOval(child: Image.asset("assets/images/person.png")),
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => UserScreen()));
-            }),
+
+        ScopedModelDescendant<UserModel>(
+          builder: (context, child, model) {
+            return IconButton(
+              icon: ClipOval(child: Image.asset("assets/images/person.png")),
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => UserScreen()));
+              }
+            );
+          }
+        ),
       ],
     );
   }
