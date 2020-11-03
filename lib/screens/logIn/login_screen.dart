@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             textColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).pushReplacement(
+              Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => SignUpScreen()));
             },
           )
@@ -91,6 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             duration: Duration(seconds: 4),
                           ));
                         } else {
+                          model.recoverPass(_emailController.text);
                           _scaffoldKey.currentState.showSnackBar(SnackBar(
                             content: Text("Confira seu e-mail para recuperação!"),
                             backgroundColor: Theme.of(context).primaryColor,
@@ -109,10 +110,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         text: "Entrar",
                         press: () {
                           if(_formKey.currentState.validate()) {
-                            model.signIn();
-                            Navigator.of(context).push(
-                                MaterialPageRoute(builder: (context) => HomeScreen()));
-
+                            model.signIn(
+                                email: _emailController.text,
+                                pass: _passController.text,
+                                onSuccess: _onSuccess,
+                                onFail: _onFail);
                           }
                         }),
                   )
@@ -124,4 +126,20 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
   }
+
+  void _onSuccess() {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => HomeScreen()));
+  }
+
+  void _onFail() {
+    _scaffoldKey.currentState.showSnackBar(
+        SnackBar(content: Text("Falha ao Entrar!"),
+          backgroundColor: Colors.redAccent,
+          duration: Duration(seconds: 2),
+        )
+    );
+  }
+
+
 }

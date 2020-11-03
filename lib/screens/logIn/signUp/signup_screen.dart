@@ -90,9 +90,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               pass: _passController.text,
                               onSuccess: _onSuccess,
                               onFail: _onFail);
-                          /*Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) => HomeScreen()));*/
                         }
                       }),
                 ),
