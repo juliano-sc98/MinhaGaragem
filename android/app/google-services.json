@@ -8,20 +8,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:251517314296:android:13effd88d80675a315870d",
+        "mobilesdk_app_id": "1:251517314296:android:a172360a923ba5a215870d",
         "android_client_info": {
           "package_name": "br.com.minhaGaragem.MinhaGaragem"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "251517314296-jr33ntjn069m11vrp7trfkrvc36vncg7.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "br.com.minhaGaragem.MinhaGaragem",
-            "certificate_hash": "6bd866c9a865c133b37065728d5c31ac52485295"
-          }
-        },
         {
           "client_id": "251517314296-44ek0u4aalh9vi3gud7kf038km1i2o77.apps.googleusercontent.com",
           "client_type": 3

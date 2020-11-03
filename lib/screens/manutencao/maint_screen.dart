@@ -22,8 +22,6 @@ class _CarDetailsState extends State<CarDetails> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: height,
-          width: width,
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   colors: [
@@ -118,7 +116,7 @@ class _CarDetailsState extends State<CarDetails> {
                 ),
               ),
               SizedBox(
-                height: height / 30,
+                height: height / 37,
               ),
               Padding(
                 padding: EdgeInsets.only(left: 25.0),

@@ -1,10 +1,12 @@
 import 'package:MinhaGaragem/components/default_button.dart';
 import 'package:MinhaGaragem/constants.dart';
+import 'package:MinhaGaragem/model/user_model.dart';
 import 'package:MinhaGaragem/screens/home/home_screen.dart';
 import 'package:MinhaGaragem/screens/logIn/signUp/signup_screen.dart';
 import 'package:MinhaGaragem/size_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -36,79 +38,90 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             textColor: kPrimaryColor,
             onPressed: () {
-              Navigator.push(context,
+              Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => SignUpScreen()));
             },
           )
         ],
       ),
-      body: Form(
-        key: _formKey,
-        child: ListView(
-          padding: EdgeInsets.all(16.0),
-          children: <Widget>[
-            TextFormField(
-              controller: _emailController,
-              decoration: InputDecoration(hintText: "E-mail"),
-              keyboardType: TextInputType.emailAddress,
-              // ignore: missing_return
-              validator: (text) {
-                if (text.isEmpty || !text.contains('@'))
-                  return "E-mail inválido!";
-              },
-            ),
-            SizedBox(
-              height: 16.0,
-            ),
-            TextFormField(
-              controller: _passController,
-              decoration: InputDecoration(hintText: "Senha"),
-              obscureText: true,
-              // ignore: missing_return
-              validator: (text) {
-                if (text.isEmpty || text.length < 6) return "Senha inválida!";
-              },
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: FlatButton(
-                child: Text(
-                  "Esqueci minha senha",
-                  textAlign: TextAlign.right,
-                ),
-                padding: EdgeInsets.zero,
-                onPressed: () {
-                  if (_emailController.text.isEmpty) {
-                    _scaffoldKey.currentState.showSnackBar(SnackBar(
-                      content: Text("Insira seu e-mail para recuperação!"),
-                      backgroundColor: Colors.redAccent,
-                      duration: Duration(seconds: 4),
-                    ));
-                  } else {
-                    _scaffoldKey.currentState.showSnackBar(SnackBar(
-                      content: Text("Confira seu e-mail para recuperação!"),
-                      backgroundColor: Theme.of(context).primaryColor,
-                      duration: Duration(seconds: 4),
-                    ));
-                  }
-                },
+      body: ScopedModelDescendant<UserModel>(
+          builder: (context, child, model){
+            if(model.isLoading)
+              return Center(child: CircularProgressIndicator(),);
+
+            return Form(
+              key: _formKey,
+              child: ListView(
+                padding: EdgeInsets.all(16.0),
+                children: <Widget>[
+                  TextFormField(
+                    controller: _emailController,
+                    decoration: InputDecoration(hintText: "E-mail"),
+                    keyboardType: TextInputType.emailAddress,
+                    // ignore: missing_return
+                    validator: (text) {
+                      if (text.isEmpty || !text.contains('@')) return "E-mail inválido!";
+                    },
+                  ),
+                  SizedBox(
+                    height: 16.0,
+                  ),
+                  TextFormField(
+                    controller: _passController,
+                    decoration: InputDecoration(hintText: "Senha"),
+                    obscureText: true,
+                    // ignore: missing_return
+                    validator: (text) {
+                      if (text.isEmpty || text.length < 6) return "Senha inválida!";
+                    },
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: FlatButton(
+                      child: Text(
+                        "Esqueci minha senha",
+                        textAlign: TextAlign.right,
+                      ),
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        if (_emailController.text.isEmpty) {
+                          _scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text("Insira seu e-mail para recuperação!"),
+                            backgroundColor: Colors.redAccent,
+                            duration: Duration(seconds: 4),
+                          ));
+                        } else {
+                          _scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text("Confira seu e-mail para recuperação!"),
+                            backgroundColor: Theme.of(context).primaryColor,
+                            duration: Duration(seconds: 4),
+                          ));
+                        }
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16.0,
+                  ),
+                  SizedBox(
+                    height: 44.0,
+                    child: DefaultButton(
+                        text: "Entrar",
+                        press: () {
+                          if(_formKey.currentState.validate()) {
+                            model.signIn();
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) => HomeScreen()));
+
+                          }
+                        }),
+                  )
+                ],
               ),
-            ),
-            SizedBox(
-              height: 16.0,
-            ),
-            SizedBox(
-              height: 44.0,
-              child: DefaultButton(
-                  text: "Entrar",
-                  press: () {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
-                  }),
-            )
-          ],
-        ),
-      ),
-    );
+            );
+          },)
+
+      );
+
   }
 }
