@@ -1,3 +1,4 @@
+import 'package:MinhaGaragem/size_config.dart';
 import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color.fromARGB(255, 23, 134, 236);
@@ -12,36 +13,36 @@ const kTextColor = Color(0xFF757575);
 
 const kAnimationDuration = Duration(milliseconds: 200);
 
-final headingStyle = TextStyle(	
-  fontSize: getProportionateScreenWidth(28),	
-  fontWeight: FontWeight.bold,	
-  color: Colors.black,	
-  height: 1.5,	
-);	
+final headingStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+);
 
-// Form Error	
-final RegExp emailValidatorRegExp =	
-RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");	
-const String kEmailNullError = "Insira seu E-mail";	
-const String kInvalidEmailError = "Insira um E-mail válido";	
-const String kPassNullError = "Insira sua senha";	
-const String kShortPassError = "Senha muito curta";	
-const String kMatchPassError = "Senhas diferentes";	
-const String kNamelNullError = "Insira seu nome";	
+// Form Error
+final RegExp emailValidatorRegExp =
+    RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+const String kEmailNullError = "Insira seu E-mail";
+const String kInvalidEmailError = "Insira um E-mail válido";
+const String kPassNullError = "Insira sua senha";
+const String kShortPassError = "Senha muito curta";
+const String kMatchPassError = "Senhas diferentes";
+const String kNamelNullError = "Insira seu nome";
 
-final otpInputDecoration = InputDecoration(	
-  contentPadding:	
-  EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),	
-  border: outlineInputBorder(),	
-  focusedBorder: outlineInputBorder(),	
-  enabledBorder: outlineInputBorder(),	
-);	
+final otpInputDecoration = InputDecoration(
+  contentPadding:
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+  border: outlineInputBorder(),
+  focusedBorder: outlineInputBorder(),
+  enabledBorder: outlineInputBorder(),
+);
 
-OutlineInputBorder outlineInputBorder() {	
-  return OutlineInputBorder(	
-    borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),	
-    borderSide: BorderSide(color: kTextColor),	
-  );	
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
+    borderSide: BorderSide(color: kTextColor),
+  );
 }
 
 final kDefualtShadow = BoxShadow(

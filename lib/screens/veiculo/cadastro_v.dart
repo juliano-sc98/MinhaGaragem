@@ -58,7 +58,6 @@ class _AddVeiculoScreenState extends State<AddVeiculoScreen> {
             TextFormField(
               controller: _placaController,
               decoration: InputDecoration(hintText: "Placa"),
-              keyboardType: TextInputType.number,
               // ignore: missing_return
               validator: (text) {
                 if (text.isEmpty) return "Campo vazio.";
@@ -134,5 +133,5 @@ class _AddVeiculoScreenState extends State<AddVeiculoScreen> {
         ),
       ),
     );
-  }
+  } 
 }

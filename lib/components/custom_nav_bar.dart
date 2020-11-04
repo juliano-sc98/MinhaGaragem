@@ -1,13 +1,13 @@
 import 'package:MinhaGaragem/constants.dart';
 import 'package:MinhaGaragem/screens/manutencao/maint_screen.dart';
+import 'package:MinhaGaragem/screens/multa/multa_screen.dart';
 import 'package:MinhaGaragem/screens/veiculo/cadastro_v.dart';
 import 'package:MinhaGaragem/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNavBar extends StatelessWidget {
-
-  const CustomNavBar ({Key key}) : super(key : key);
+  const CustomNavBar({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,10 @@ class CustomNavBar extends StatelessWidget {
             NavItem(
               icon: "assets/icons/aviso.svg",
               text: "Multas",
-              press: () {},
+              press: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MultaScreen()));
+              },
             ),
           ],
         ),
@@ -54,7 +57,6 @@ class CustomNavBar extends StatelessWidget {
 }
 
 class NavItem extends StatelessWidget {
-
   const NavItem(
       {Key key, @required this.icon, @required this.text, @required this.press})
       : super(key: key);
