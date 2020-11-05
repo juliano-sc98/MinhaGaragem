@@ -1,6 +1,7 @@
 import 'package:MinhaGaragem/constants.dart';
+import 'package:MinhaGaragem/screens/debito/debito_screen.dart';
 import 'package:MinhaGaragem/screens/manutencao/maint_screen.dart';
-import 'package:MinhaGaragem/screens/multa/multa_screen.dart';
+import 'package:MinhaGaragem/screens/multa/multa_details.dart';
 import 'package:MinhaGaragem/screens/veiculo/cadastro_v.dart';
 import 'package:MinhaGaragem/size_config.dart';
 import 'package:flutter/material.dart';
@@ -39,14 +40,17 @@ class CustomNavBar extends StatelessWidget {
             NavItem(
               icon: "assets/icons/dolar.svg",
               text: "Taxas",
-              press: () {},
+              press: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DebitoScreen()));
+              },
             ),
             NavItem(
               icon: "assets/icons/aviso.svg",
               text: "Multas",
               press: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MultaScreen()));
+                    MaterialPageRoute(builder: (context) => MultaDetails()));
               },
             ),
           ],
