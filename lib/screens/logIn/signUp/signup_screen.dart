@@ -2,6 +2,7 @@ import 'package:MinhaGaragem/components/default_button.dart';
 import 'package:MinhaGaragem/model/user_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -16,6 +17,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final _cpfController = TextEditingController();
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
+
+  var maskFormatter = new MaskTextInputFormatter(mask: '###.###.###-##', filter: { "#": RegExp(r'[0-9]') });
 
   final _formKey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -73,6 +76,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
 
                 TextFormField(
+                  inputFormatters: [maskFormatter],
                   controller: _cpfController,
                   decoration: InputDecoration(hintText: "CPF - somente os números"),
                   keyboardType: TextInputType.number,

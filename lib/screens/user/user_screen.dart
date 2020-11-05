@@ -2,6 +2,7 @@ import 'package:MinhaGaragem/constants.dart';
 import 'package:MinhaGaragem/model/user_model.dart';
 import 'package:MinhaGaragem/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class UserScreen extends StatefulWidget {
@@ -15,6 +16,8 @@ class _UserScreenState extends State<UserScreen> {
   final _lastNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _cpfController = TextEditingController();
+
+  var maskFormatter = new MaskTextInputFormatter(mask: '###.###.###-##', filter: { "#": RegExp(r'[0-9]') });
 
   final _nameFocus = FocusNode();
   final _lastNameFocus = FocusNode();
@@ -128,6 +131,7 @@ class _UserScreenState extends State<UserScreen> {
 
                     Padding(padding: EdgeInsets.only(bottom: 10.0),
                       child: TextField(
+                        inputFormatters: [maskFormatter],
                         controller: _cpfController,
                         decoration: InputDecoration(labelText: "CPF"),
                         readOnly: true,
