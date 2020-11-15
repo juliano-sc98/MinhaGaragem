@@ -255,8 +255,8 @@ class _HomeScreenState extends State<HomeScreen> {
             return IconButton(
               icon: ClipOval(child: Image.asset("assets/images/person.png")),
               onPressed: () {
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => UserScreen()));
+                Navigator.push(context,MaterialPageRoute(
+                        builder: (context) => UserScreen()));
               }
             );
           }

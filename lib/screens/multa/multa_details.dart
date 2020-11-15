@@ -30,7 +30,7 @@ class MultaDetails extends StatelessWidget {
                   ),
                   children: <Widget>[
                     ListTile(
-                      tileColor: Colors.red[200],
+                      hoverColor: Colors.red[200],
                       leading: Icon(Icons.warning),
                       title: Text('Status'),
                       subtitle: Text('VENCIDA'),
@@ -85,7 +85,7 @@ class MultaDetails extends StatelessWidget {
                   ),
                   children: <Widget>[
                     ListTile(
-                      tileColor: Colors.green[200],
+                      hoverColor: Colors.green[200],
                       leading: Icon(CommunityMaterialIcons.check),
                       title: Text('Status'),
                       subtitle: Text('PAGA'),
@@ -129,7 +129,7 @@ class MultaDetails extends StatelessWidget {
                   ),
                   children: <Widget>[
                     ListTile(
-                      tileColor: Colors.green[200],
+                      hoverColor: Colors.green[200],
                       leading: Icon(CommunityMaterialIcons.check),
                       title: Text('Status'),
                       subtitle: Text('PAGA'),

@@ -2,6 +2,7 @@ import 'package:MinhaGaragem/constants.dart';
 import 'package:MinhaGaragem/model/user_model.dart';
 import 'package:MinhaGaragem/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -41,16 +42,6 @@ class _UserScreenState extends State<UserScreen> {
 
               appBar: AppBar(
 
-                leading: IconButton(
-                  icon: Icon(
-                    Icons.keyboard_arrow_left, color: Colors.black,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute
-                      (builder: (context) => HomeScreen()));
-                  },
-                ),
-
                 backgroundColor: kPrimaryColor,
                 title: Text(
                   "Olá, ${model.userData['name']}",
@@ -69,9 +60,11 @@ class _UserScreenState extends State<UserScreen> {
                   else if (_emailController.text.isEmpty)
                     FocusScope.of(context).requestFocus(_emailFocus);
                   else {
+                    model.userData['name'] = _nameController.text;
+                    model.userData['lastName'] = _lastNameController.text;
+                    model.userData['email'] = _emailController.text;
                     Navigator.of(context).pushReplacement(MaterialPageRoute
                       (builder: (context) => HomeScreen()));
-                    model.updateUser();
                   }
                 },
                 child: Icon(Icons.save),
@@ -96,9 +89,6 @@ class _UserScreenState extends State<UserScreen> {
                           ),
                         ),
                       ),
-                      onTap: () {
-
-                      },
                     ),
 
                     Padding(padding: EdgeInsets.only(bottom: 10.0),
@@ -108,9 +98,6 @@ class _UserScreenState extends State<UserScreen> {
                         decoration: InputDecoration(labelText: "Nome",),
                         onChanged: (text) {
                           _userEdited = true;
-                          setState(() {
-                            model.userData['name'] = text;
-                          });
                         },
                       ),
                     ),
@@ -122,9 +109,6 @@ class _UserScreenState extends State<UserScreen> {
                         decoration: InputDecoration(labelText: "Sobrenome",),
                         onChanged: (text) {
                           _userEdited = true;
-                          setState(() {
-                            model.userData['lastName'] = text;
-                          });
                         },
                       ),
                     ),
@@ -138,9 +122,6 @@ class _UserScreenState extends State<UserScreen> {
                         keyboardType: TextInputType.number,
                         onChanged: (text) {
                           _userEdited = true;
-                          setState(() {
-                            model.userData['cpf'] = text;
-                          });
                         },
                       ),
                     ),
@@ -153,9 +134,6 @@ class _UserScreenState extends State<UserScreen> {
                         keyboardType: TextInputType.emailAddress,
                         onChanged: (text) {
                           _userEdited = true;
-                          setState(() {
-                            model.userData['email'] = text;
-                          });
                         },
                       ),
                     ),

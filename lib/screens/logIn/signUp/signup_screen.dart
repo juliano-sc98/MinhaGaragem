@@ -83,7 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                   validator: (text) {
                     if (text.isEmpty) return "CPF inválido!";
-                    else if (text.length > 11) return "Digite somente os 11 caracteres";
+                    else if (text.length > 14) return "Digite somente os 11 caracteres";
                     else return null;
                   },
 

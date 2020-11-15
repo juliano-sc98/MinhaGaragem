@@ -39,10 +39,10 @@ dependencies:
   community_material_icon: ^5.4.55
   flutter_svg: ^0.18.0
   mask_text_input_formatter: ^1.1.0
+  image_picker: ^0.6.2+3
+  firebase_storage: ^3.1.5
+  firebase_messaging: ^5.1.8
 
-  #image_picker: ^0.6.2+3
-  # firebase_storage: ^4.0.1
-  #firebase_messaging: ^5.1.8
   #provider: ^4.3.1
   #flutter_launcher_icons: ^0.8.0
   #path_provider: ^0.4.1

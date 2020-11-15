@@ -94,6 +94,10 @@ class UserModel extends Model {
     _saveUserData(userData);
   }
 
+  void loadUser() async{
+    return _loadCurrentUser();
+  }
+
   Future<Null> _loadCurrentUser() async {
     if(firebaseUser == null)
       firebaseUser = await _auth.currentUser();
