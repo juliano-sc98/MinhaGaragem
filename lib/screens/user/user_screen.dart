@@ -2,7 +2,6 @@ import 'package:MinhaGaragem/constants.dart';
 import 'package:MinhaGaragem/model/user_model.dart';
 import 'package:MinhaGaragem/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:scoped_model/scoped_model.dart';
 

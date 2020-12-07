@@ -1,6 +1,5 @@
 import 'package:MinhaGaragem/components/default_button.dart';
 import 'package:MinhaGaragem/model/car_model.dart';
-import 'package:MinhaGaragem/screens/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -142,7 +141,6 @@ class _AddVeiculoScreenState extends State<AddVeiculoScreen> {
                             'revisaoKm': null,
                             'revisaoOl': null,
                             'revisaoBl': null,
-                            'imagem': null,
                             'tipoVeiculo': 'Carro',
                           };
                           model.addCar(carData);
@@ -160,7 +158,6 @@ class _AddVeiculoScreenState extends State<AddVeiculoScreen> {
                             'revisaoKm': null,
                             'revisaoOl': null,
                             'revisaoBl': null,
-                            'imagem': null,
                             'tipoVeiculo': 'Moto',
                           };
                           model.addCar(carData);

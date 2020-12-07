@@ -1,13 +1,12 @@
 import 'package:MinhaGaragem/components/custom_nav_bar.dart';
 import 'package:MinhaGaragem/constants.dart';
 import 'package:MinhaGaragem/model/user_model.dart';
-import 'package:MinhaGaragem/screens/manutencao/maint_screen.dart';
 import 'package:MinhaGaragem/screens/user/user_screen.dart';
-import 'package:MinhaGaragem/screens/veiculo/cadastro_v.dart';
 import 'package:MinhaGaragem/size_config.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:characters/characters.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -23,163 +22,121 @@ class _HomeScreenState extends State<HomeScreen> {
       key: _scaffoldKey,
       appBar: buildAppBar(),
       backgroundColor: kPrimaryLightColor,
-      body: ListWheelScrollView(
-        itemExtent: 250,
-        children: <Widget>[
+      body: Container(
+        decoration: BoxDecoration(
+          image: new DecorationImage(
+                image: new AssetImage("assets/images/background.jpg"),
+                fit: BoxFit.cover,
 
-          Padding(
-            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+              ),
+            ),
+        child: ListWheelScrollView(
+          itemExtent: 250,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 20.0, right: 20.0),
 
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: getProportionateScreenHeight(280),
+              child: Container(
+                //color: kSecondaryLightColor,
+                width: MediaQuery.of(context).size.width,
+                height: getProportionateScreenHeight(280),
 
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
 
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => CarDetails()));
-                    },
-
-                    child: Container(
+                    Container(
                       width: getProportionateScreenWidth(140),
                       height: getProportionateScreenHeight(140),
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage("assets/images/onix.png"),
+                            image: AssetImage("assets/images/civic.png"),
                             fit: BoxFit.contain),
                       ),
                     ),
-                  ),
 
-                  Text(
-                    "Onix",
-                    style: TextStyle(
-                      fontSize: getProportionateScreenWidth(18),
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+                    Container(
+                      color: kBackColor,
+                      child: Text(
+                        "Civic",
+                        style: TextStyle(
+                          fontSize: getProportionateScreenWidth(18),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                  ),
 
-                  Padding(padding: EdgeInsets.only(bottom: 10.0)),
-                  Text(
-                    "Seu carro está em dia com as contas",
-                    style: TextStyle(
-                      fontSize: getProportionateScreenWidth(14),
-                      color: Colors.black,
+                    Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                    Container(
+                      color: kBackColor,
+                      child: Text(
+                        "Seu carro está em dia com as contas",
+                        style: TextStyle(
+                          fontSize: getProportionateScreenWidth(14),
+                          color: Colors.black,
+                        ),
+                      ),
                     ),
-                  ),
-
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
 
-          Padding(
-            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            Padding(
+              padding: EdgeInsets.only(left: 20.0, right: 20.0),
 
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: getProportionateScreenHeight(280),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: getProportionateScreenHeight(280),
 
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
 
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => CarDetails()));
-                    },
-
-                    child: Container(
+                    Container(
                       width: getProportionateScreenWidth(140),
                       height: getProportionateScreenHeight(140),
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage("assets/images/renegade.png"),
+                            image: AssetImage("assets/images/tracker.png"),
                             fit: BoxFit.contain),
                       ),
                     ),
-                  ),
 
-                  Text(
-                    "Renegade",
-                    style: TextStyle(
-                      fontSize: getProportionateScreenWidth(18),
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-
-                  Padding(padding: EdgeInsets.only(bottom: 10.0)),
-                  Text(
-                    "Seu carro está com o IPVA atrasado",
-                    style: TextStyle(
-                      fontSize: getProportionateScreenWidth(14),
-                      color: Colors.red,
-                    ),
-                  ),
-
-                ],
-              ),
-            ),
-          ),
-
-          Padding(
-            padding: EdgeInsets.only(left: 20.0, right: 20.0),
-
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: getProportionateScreenHeight(280),
-
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => CarDetails()));
-                    },
-
-                    child: Container(
-                      width: getProportionateScreenWidth(140),
-                      height: getProportionateScreenHeight(140),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/biz125.png"),
-                            fit: BoxFit.contain),
+                    Container(
+                      color: kBackColor,
+                      child: Text(
+                        "Tracker",
+                        style: TextStyle(
+                          fontSize: getProportionateScreenWidth(18),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
 
-                  Text(
-                    "Biz",
-                    style: TextStyle(
-                      fontSize: getProportionateScreenWidth(18),
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+                    Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                    Container(
+                      color: kBackColor,
+                      child: Text(
+                        "Seu carro está com o IPVA atrasado",
+                        style: TextStyle(
+                          fontSize: getProportionateScreenWidth(14),
+                          color: Colors.red,
+                        ),
+                      ),
                     ),
-                  ),
 
-                  Padding(padding: EdgeInsets.only(bottom: 10.0)),
-                  Text(
-                    "Sua moto está em dia com as contas",
-                    style: TextStyle(
-                      fontSize: getProportionateScreenWidth(14),
-                      color: Colors.black,
-                    ),
-                  ),
-
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+
+
+          ],
+        ),
+
       ),
 
       bottomNavigationBar: CustomNavBar(),
@@ -257,6 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.push(context,MaterialPageRoute(
                         builder: (context) => UserScreen()));
+                var nome = model.userData['name'].toString();
               }
             );
           }
@@ -264,4 +222,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
 }

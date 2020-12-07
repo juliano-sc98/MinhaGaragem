@@ -38,6 +38,9 @@ class _CarDetailsState extends State<CarDetails> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+
+              //Image.asset("assets/images/background.jpg", fit: BoxFit.cover, ),
+
               Padding(
                 padding: EdgeInsets.only(right: 25.0, left: 25.0),
                 child: Row(
@@ -57,7 +60,7 @@ class _CarDetailsState extends State<CarDetails> {
                             height: 5.0,
                           ),
                           Text(
-                            "Chevrolet Onix",
+                            "Honda Civic",
                             style: TextStyle(
                                 color: Colors.black, fontSize: height / 32),
                           )
@@ -75,12 +78,12 @@ class _CarDetailsState extends State<CarDetails> {
                   decoration: BoxDecoration(
                       //color: Colors.red,
                       image: DecorationImage(
-                          image: AssetImage("assets/images/onix.png"),
+                          image: AssetImage("assets/images/civic.png"),
                           fit: BoxFit.contain)),
                 ),
               ),
               Container(
-                height: height / 4,
+                height: height / 4.5,
                 width: width,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -90,7 +93,7 @@ class _CarDetailsState extends State<CarDetails> {
                             color: Colors.white),
                         "Quilometragem",
                         "8345 km",
-                        (height / 5) / 6,
+                        (height / 5) / 7,
                         "+ 7km hoje",
                         true),
                     testab(
@@ -98,14 +101,14 @@ class _CarDetailsState extends State<CarDetails> {
                             color: Colors.white),
                         "Consumo",
                         "15.4/l km",
-                        (height / 5) / 6,
+                        (height / 5) / 7,
                         "",
                         true),
                     testab(
                         Icon(CommunityMaterialIcons.tools, color: Colors.white),
                         "Últ. Manutenção",
                         "--/--/--",
-                        (height / 5) / 6,
+                        (height / 6) / 9,
                         "",
                         false),
                     testab(
@@ -113,7 +116,7 @@ class _CarDetailsState extends State<CarDetails> {
                             color: Colors.white),
                         "Últ. Calibragem",
                         "23/11/19",
-                        (height / 5) / 6,
+                        (height / 5) / 7,
                         "",
                         false),
                   ],
@@ -211,7 +214,7 @@ class _CarDetailsState extends State<CarDetails> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.only(left: 30.0),
+      padding: EdgeInsets.only(left: 15.0),
       child: Container(
         height: height / 7,
         width: width / 1.8,
@@ -222,10 +225,10 @@ class _CarDetailsState extends State<CarDetails> {
                 child: Container(
                     padding: EdgeInsets.only(
                         top: (height / 7) / 6,
-                        left: (width / 2.2) / 5,
-                        right: (width / 2.2) / 10),
-                    height: height / 7,
-                    width: width / 2.2,
+                        left: (width / 2) / 5,
+                        right: (width / 2) / 9),
+                    height: height / 6.5,
+                    width: width / 2,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                             colors: [
@@ -240,18 +243,18 @@ class _CarDetailsState extends State<CarDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "10/12/2029",
+                          " 10/12/2029",
                           style: TextStyle(
                             color: Colors.white,
                           ),
                         ),
                         Text(
-                          "Primeira revisão",
+                          " Primeira revisão",
                           style: TextStyle(
                               color: Colors.white, fontSize: height / 50),
                         ),
                         SizedBox(
-                          height: height / 60,
+                          height: height / 50,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -263,7 +266,7 @@ class _CarDetailsState extends State<CarDetails> {
                                 Icon(
                                   CommunityMaterialIcons.tools,
                                   color: Colors.black,
-                                  size: height / 60,
+                                  size: height / 70,
                                 ),
                                 SizedBox(
                                   width: 5.0,
@@ -275,14 +278,15 @@ class _CarDetailsState extends State<CarDetails> {
                                       fontSize: height / 70),
                                 )
                               ],
-                            )
+                            ),
                           ],
-                        )
+                        ),
+
                       ],
                     ))),
             Positioned(
               top: (height / 7) / 6,
-              left: 0.0,
+              left: (-3.0),
               child: Container(
                 height: height / 10,
                 width: width / 6,
